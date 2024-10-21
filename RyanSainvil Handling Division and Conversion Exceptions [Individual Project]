@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        try
+        {
+            Console.WriteLine("Enter two integers (userNum and divNum):");
+            int userNum = Convert.ToInt32(Console.ReadLine());
+            int divNum = Convert.ToInt32(Console.ReadLine());
+            int quotient = userNum / divNum;
+            Console.WriteLine(quotient);
+        }
+        catch (DivideByZeroException e)
+        {
+            Console.WriteLine("Arithmetic Exception: " + e.Message);
+        }
+        catch (FormatException e)
+        {
+            Console.WriteLine("Input Mismatch Exception: " + e.ToString());
+        }
+        catch (OverflowException e)
+        {
+            Console.WriteLine("Overflow Exception: " + e.Message);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("An unexpected error occurred: " + e.Message);
+        }
+    }
+}
